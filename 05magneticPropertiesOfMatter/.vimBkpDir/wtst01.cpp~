@@ -1,0 +1,36 @@
+// wtst01.cpp
+// wpf 20210925 21h26min
+//
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <map>
+#include <random>
+#include <cmath>
+ 
+class Is
+{ 
+    public:
+        Is() : e1(r()), dist(std::uniform_int_distribution<int> uniform_dist(1, 6))
+        { 
+            //e1.seed();
+        }
+        ~Is()=default;
+        int rnd1()
+        {   return e1();//uniform_dist(e1);
+        }
+        std::random_device r;
+        std::default_random_engine e1;
+        std::uniform_int_distribution<int> dist;
+
+};
+
+int main()
+{
+    //int num = uniform_dist(e1);
+    Is is;
+    int num=is.rnd1();
+    std::cout << "Randomly-chosen num: " << num << '\n';
+    return 0;
+}
